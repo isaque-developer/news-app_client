@@ -1,0 +1,110 @@
+:root {
+    --all-height: 100vh;
+    --footer-height: 40px;
+    --header-height: 50px;
+    --main-height: calc(var(--all-height) - var(--footer-height) - var(--header-height));
+    --headchild-height: calc(var(--header-height) * .7);
+}
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: solid 1px transparent;
+}
+
+*:not(#logo, #user > button, input, #searchList *):focus {
+    box-shadow: 0 0 5px 3px #000a!important;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 5px;
+    border: solid 3px #555;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+#root {
+    width: 100vw;
+    height: var(--all-height);
+    background: #555;
+    display: grid;
+    grid-template-rows: var(--header-height) var(--main-height) var(--footer-height);
+}
+
+a {
+    text-decoration: 0;
+}
+
+button {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:not(.image button, #user > button):hover {
+    background: #ddd;
+    box-shadow: inset 0 0 3px #777;
+    filter: drop-shadow(1px 2px 3px #0005);
+}
+
+button:not(.image button, #user > button):active {
+    font-weight: normal;
+    background: #61dafba0;
+}
+
+input {
+    outline: 0;
+}
+
+.success {
+    background: #8f8;
+}
+
+.error {
+    background: #f88;
+}
+
+@media screen and (max-width: 249px), screen and (max-height: 99px) {
+    #root {
+        display: none;
+    }
+
+    body, body::before {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    body {
+        display: flex;
+        background: #222;
+    }
+
+    body::before {
+        content: '';
+        background: url('../images/logo.svg') center / 90% 80% no-repeat;
+        opacity: .1;
+    }
+
+    body::after {
+        content: 'Resolução da tela incompatível';
+        font-size: 18vmin;
+        text-align: center;
+        color: #ccc;
+        margin: auto;
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,682 @@
+#root > * {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+header, footer {
+    background: #aaa;
+    box-shadow: 0 0 10px #000;
+}
+
+header {
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+header * {
+    display: inline-flex;
+    align-items: center;
+}
+
+#logo {
+    padding: 3px;
+    border-radius: 30%;
+    filter: drop-shadow(0 0 2px #0005);
+}
+
+#logo img {
+    height: var(--headchild-height);
+}
+
+header > div {
+    height: var(--headchild-height);
+    max-height: 26px;
+    position: relative;
+}
+
+header > div > * {
+    height: 100%;
+}
+
+#divSearch {
+    padding: 2px 5px 2px 0;
+    border-radius: 13px;
+    background: #888;
+    margin: 0 15px;
+    z-index: 10;
+}
+
+#divSearch img {
+    height: 60%;
+    padding: 2px 8px 0;
+    opacity: .7;
+    filter: drop-shadow(0 0 1px #000);
+}
+
+#divSearch input {
+    background: transparent;
+    color: #eee;
+    width: 30vw;
+    max-width: 300px;
+}
+
+#searchList {
+    position: absolute;
+    background: inherit;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #0005;
+    top: 0;
+    height: max-content;
+    width: 100%;
+    padding-top: 26px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#searchList * {
+    color: #eee;
+    display: block;
+}
+
+#searchList *:focus, #searchList * > *:hover {
+    background: #0003;
+}
+
+#searchList > *::before {
+    content: '';
+    display: block;
+    width: 85%;
+    margin: auto;
+    border-top: solid 1px #0005;
+}
+
+#searchList > * > * {
+    padding: 5px 8%;
+}
+
+header button {
+    width: var(--headchild-height);
+    max-width: 26px;
+    justify-content: center;
+    color: #333;
+    background: none;
+    border-radius: 5px;
+}
+
+header > div > button {
+    margin-right: 15px;
+}
+
+#menu ~ div {
+    border-left: solid 1px #888;
+    height: var(--header-height);
+    opacity: .6;
+}
+
+#menu ~ div > * {
+    margin-left: 15px;
+    padding: 5px;
+}
+
+#menu {
+    position: absolute;
+    display: grid;
+    height: max-content;
+    background: #0005;
+    border-radius: 3px;
+    margin: 0;
+    top: 35px;
+    right: 0;
+    box-shadow: 0 0 2px #000;
+    z-index: 10;
+}
+
+#menu > * > * {
+    background: #eeee;
+    padding: 2px 10px;
+    margin: 2px;
+    min-width: max-content;
+    width: 100%;
+    border-radius: 3px;
+    color: #222;
+    font-weight: 600;
+}
+
+#menu > * > *:hover {
+    background: #ccce;
+}
+
+a.menu:hover {
+    transform: scale(1.01);
+}
+
+a.menu:active {
+    transform: scale(.98);
+}
+
+main {
+    overflow: auto;
+}
+
+main > * {
+    margin: auto;
+}
+
+main > h2 {
+    max-width: 70%;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+}
+
+main ul {
+    list-style: none;
+    height: 100%;
+}
+
+main > ul {
+    display: inline-flex;
+    padding: 15px 10px;
+}
+
+main > ul > li {
+    display: flex;
+    width: calc(var(--main-height) / 2);
+    max-width: calc(100vw - 10px);
+    min-width: 240px;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #0009;
+    position: relative;
+    overflow: hidden;
+}
+
+main > ul > li:not(:first-of-type) {
+    margin-left: 10px;
+}
+
+a.news {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+main > ul > li::before, main > ul > li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+main > ul > li::before {
+    background: #aaa url("../images/logo.svg") center / 85% 85% no-repeat;
+    transition: transform .4s ease;
+}
+
+main > ul > li:hover::before {
+    transform: scale(1.1);
+}
+
+main > ul > li::after {
+    background: linear-gradient(transparent 50%, #000e);
+}
+
+main > ul > li > * {
+    z-index: 1;
+    color: #acf;
+    filter: drop-shadow(0 0 5px #000);
+}
+
+div.loading {
+    background: #555a;
+    display: none;
+    height: var(--main-height);
+    position: absolute;
+    top: var(--header-height);
+    width: 100%;
+    z-index: 1;
+}
+
+div.loading > img {
+    margin: auto;
+}
+
+footer {
+    justify-content: center;
+}
+
+footer > * {
+    margin: 0 3px;
+    display: flex;
+}
+
+footer a {
+    color: #000;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+footer > a:first-of-type {
+    border-radius: 50%;
+}
+
+footer > div {
+    margin: 0 30px;
+    height: 50%;
+    border-left: solid 1px #000;
+}
+
+footer img {
+    height: calc(var(--footer-height) * .5);
+}
+
+header > a:hover, footer a:hover {
+    transform: scale(1.05);
+}
+
+header > a:active, footer > a:active {
+    transform: scale(.97);
+}
+
+form {
+    background: #aaa;
+    width: 80vw;
+    max-width: 700px;
+    max-height: calc(var(--main-height) * .9);
+    border: solid 5px transparent;
+    padding: 15px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #0009;
+    overflow-y: auto;
+}
+
+#user, #registernews {
+    position: relative;
+}
+
+#user > * {
+    max-width: 500px;
+}
+
+#user > button {
+    display: inline-flex;
+    width: calc(50% + 5px);
+    height: 25px;
+    border-radius: 5px 5px 0 0;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+#user > button:last-of-type {
+    right: 0;
+}
+
+#user > form {
+    border-top: solid 35px transparent;
+}
+
+#registernews {
+    border-right: 0;
+}
+
+form::-webkit-scrollbar-thumb {
+    border: solid 3px #aaa;
+}
+
+form *:not([type=checkbox]) {
+    width: 100%;
+    border-radius: 3px;
+}
+
+form > *:not(.response, .images) {
+    margin: 5px;
+    width: calc(100% - 10px);
+}
+
+form > *:not(div, .images) {
+    padding: 5px;
+}
+
+form > *:not(span.response, .images), .image, .image li {
+    box-shadow: 0 0 3px #0005;
+}
+
+form .images, .image ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form .images {
+    justify-content: center;
+    margin: 0;
+}
+
+form .image {
+    display: inline-flex;
+    height: 200px;
+    margin: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+form .image::after {
+    content: attr(data-response);
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+form .image:first-of-type {
+    width: 150px;
+}
+
+form .image:first-of-type:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #0003;
+}
+
+form .image:last-of-type {
+    background: #999;
+    border: solid 2px transparent;
+    flex: 1;
+    min-width: 150px;
+}
+
+form .image > * {
+    position: absolute;
+    z-index: 1;
+}
+
+form .image:first-of-type > [type=file] {
+    height: 100%;
+    opacity: 0;
+}
+
+form .image:first-of-type > [type=file]::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+form .image ul {
+    overflow-y: auto;
+}
+
+form *::-webkit-scrollbar, .illustrations::-webkit-scrollbar {
+    width: 4px;
+}
+
+form *::-webkit-scrollbar-thumb, .illustrations::-webkit-scrollbar-thumb {
+    border: 0;
+}
+
+form .image li {
+    cursor: pointer;
+    flex: 80px;
+    height: calc(50% - 3.5px);
+    margin: 2px 2px 1px;
+    overflow: hidden;
+    position: relative;
+}
+
+form .image li:hover::after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(160deg, transparent 20%, #0008);
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+form .image [type=checkbox] {
+    margin: 3px;
+    opacity: 0;
+}
+
+form .image [type=checkbox]:checked {
+    opacity: .6;
+}
+
+form .image:last-of-type > button {
+    background: #6be;
+    font-size: inherit;
+    line-height: 35px;
+    height: 35px;
+    width: 35px;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 3px #000;
+}
+
+@keyframes show {
+    from { bottom: 20px; }
+    to { bottom: 40px; }
+}
+
+form .image:last-of-type > button:first-of-type {
+    background: #d33 url("../images/trash.svg") center 35% / 70% no-repeat;
+    border-radius: 3px;
+    height: 30px;
+    width: 20px;
+    bottom: 40px;
+    right: 17px;
+    animation: show .3s ease;
+}
+
+form > .response:not(span) {
+    text-align: center;
+    margin-top: 15px;
+}
+
+form > span.response {
+    position: absolute;
+    display: flex;
+    background: #aaa9;
+    padding-top: 30px;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+span.response > img {
+    height: 70%;
+    max-height: 200px;
+    margin: auto;
+}
+
+#registernews > input {
+    font-size: 3ch;
+}
+
+#registernews > textarea {
+    border: solid 2px transparent;
+    resize: none;
+    min-height: 120px;
+}
+
+article::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+article::-webkit-scrollbar-thumb {
+    border: 0;
+}
+
+article {
+    background: #acf3;
+    border: solid 2px transparent;
+    border-radius: 4px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    padding: 20px 30px;
+    overflow-y: auto;
+}
+
+article * {
+    color: #ddd;
+}
+
+article *:not(h1, p) {
+    font-size: small;
+}
+
+article > *:not(div, span) {
+    padding: 15px 0;
+}
+
+article > h1 {
+    padding-bottom: 30px;
+}
+
+article > div a {
+    color: #acf;
+    padding: 0 4px;
+    font-weight: bold;
+}
+
+article > p {
+    margin-top: 3px;
+    padding: 10px 30px;
+    text-align: justify;
+}
+
+article > p:first-of-type {
+    border-top: solid 1px #aaa;
+    padding-top: 50px;
+}
+
+article > p:last-of-type {
+    padding-bottom: 50px;
+}
+
+.illustrations {
+    height: 300px;
+    background: #aaa;
+    border: solid 3px transparent;
+    border-radius: 3px;
+    overflow-y: auto;
+}
+
+.illustrations ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.illustrations li {
+    flex: 200px;
+    border-radius: 3px;
+    box-shadow: 0 0 5px #0005;
+    cursor: pointer;
+    margin: 3px;
+    min-height: calc(50% - 6px);
+    overflow: hidden;
+    position: relative;
+}
+
+.illustrations li:hover::after {
+    content: '';
+    position: absolute;
+    background: #0005;
+    width: 100%;
+    height: 100%;
+}
+
+#showFullImg::after {
+    content: '✖';
+    color: #ddd;
+    cursor: pointer;
+    position: absolute;
+    font-size: larger;
+    top: 5px;
+    right: 12px;
+}
+
+@media screen and (max-aspect-ratio: 6/7), screen and (max-width: 400px) {
+    #divSearch input {
+        width: 100%;
+    }
+
+    main {
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+    }
+
+    main > ul > li {
+        width: 100vw;
+        scroll-snap-align: center;
+    }
+
+    #registernews {
+        max-height: calc(100% - 10px);
+        padding: 5px 0 5px 2px;
+    }
+
+    #registernews, #user {
+        width: calc(100% - 10px);
+    }
+
+    #user > form {
+        width: 100%;
+        padding: 5px 0;
+    }
+}
+
+@media screen and (min-aspect-ratio: 5/3) {
+    .withImg {
+        position: relative;
+    }
+
+    .withImg > *:not(.illustrations) {
+        width: 55%;
+    }
+
+    .illustrations {
+        position: fixed;
+        height: calc(var(--main-height) - 50px);
+        width: 40%;
+        right: 35px;
+        top: calc(var(--header-height) + 27px);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    article {
+        padding: 15px;
+    }
+
+    article > h1 {
+        padding-top: 5px;
+    }
+
+    article > p {
+        padding: 10px;
+    }
+
+    article > p:first-of-type {
+        padding-top: 30px;
+    }
+
+    article > p:last-of-type {
+        padding-bottom: 30px;
+    }
+}
